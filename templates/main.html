@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">List</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="/addnew">Add</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link  active" href="/predict">Predict</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      {% block content %}
+      <h1>List:</h1>
+
+      <table class="table" style="text-align: center; width: 80%; margin: auto;">
+        <thead>
+          <tr>
+            <th scope="col">carat</th>
+            <th scope="col">cut</th>
+            <th scope="col">color</th>
+            <th scope="col">clarity</th>
+            <th scope="col">depth</th>
+            <th scope="col">table</th>
+            <th scope="col">price</th>
+            <th scope="col">x</th>
+            <th scope="col">y</th>
+            <th scope="col">z</th>
+          </tr>
+        </thead>
+        <tbody>
+
+            {% for i,row in data.iterrows() %}
+
+          <tr>
+            <th >{{row.carat}}</th>
+            <td>{{row.cut}}</td>
+            <td>{{row.color}}</td>
+            <td>{{row.clarity}}</td>
+            <td>{{row.depth}}</td>
+            <td>{{row.table}}</td>
+            <td>{{row.price}}</td>
+            <td>{{row.x}}</td>
+            <td>{{row.y}}</td>
+            <td>{{row.z}}</td>
+          </tr>
+
+            {% endfor %}
+          
+        </tbody>
+      </table>
+      {% endblock %}  
+
+</body>
+
+</html>
